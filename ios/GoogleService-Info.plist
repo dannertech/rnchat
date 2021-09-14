@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>435449053475-ot1sib0aeuo0lp77vni745t6v3ddm8d5.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.435449053475-ot1sib0aeuo0lp77vni745t6v3ddm8d5</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDUNszgI1G9SARNCkybmHf9yMc85KYDQpw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>435449053475</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>come.DannerTech.rnchat</string>
+	<key>PROJECT_ID</key>
+	<string>react-chat-app-75bb2</string>
+	<key>STORAGE_BUCKET</key>
+	<string>react-chat-app-75bb2.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:435449053475:ios:3baa26db119a83ac6f0c96</string>
+</dict>
+</plist>
