@@ -4,7 +4,8 @@ import {StyleSheet, Text, View, Button, TextInput} from 'react-native';
 const Login = () => {
     return(
         <View>
-            <Text>This is the Login screen</Text>
+            <TextInput placeholder="Email"/>
+            <TextInput placeholder="Password"/>
         </View>
     )
 };
