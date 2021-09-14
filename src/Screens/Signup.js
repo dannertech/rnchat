@@ -2,19 +2,20 @@ import React, {useState, useEffect} from 'react';
 import {StyleSheet, View, Text, TextInput, Button} from 'react-native';
 import auth from '@react-native-firebase/auth';
 
-const Signup = () => {
+const Signup = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    const signup = (email, password, confirmPassword) => {
+    const _signup = (email, password, confirmPassword) => {
         if(email != '' && password == confirmPassword){
             auth().createUserWithEmailAndPassword(email, password)
             .then(() => {
-                console.log("user was created")
+                console.log("user was created");
+
             }).catch((error) => {
                 if(error === 'auth/email-already-in-use'){
-                    console.log("email already used")
+                    console.log("email already used");
                 }
                 if(error === 'auth/invalid-email'){
                     console.log("using invalid email");
@@ -24,10 +25,10 @@ const Signup = () => {
     }
     return(
         <View>
-            <TextInput placeholder="Email" onChangeText={(text) => setEmail(text)} value={email}/>
-            <TextInput placeholder="Password" onChangeText={(text) => setPassword(text)} value={password}/>
-            <TextInput placeholder="Confirm Password" onChangeText={(text) => setConfirmPassword(text)} value={confirmPassword}/>
-            <Button title="Sign Up"/>
+            <TextInput placeholder="Email" onChangeText={(text) => setEmail(text)} value={email} autoCapitalize="none" autoCorrect={false} />
+            <TextInput placeholder="Password" onChangeText={(text) => setPassword(text)} value={password} autoCapitalize="none" autoCorrect={false}/>
+            <TextInput placeholder="Confirm Password" onChangeText={(text) => setConfirmPassword(text)} value={confirmPassword} autoCapitalize="none" autoCorrect={false}/>
+            <Button title="Sign Up" onPress={() => _signup(email, password, confirmPassword)}/>
         </View>
     )
 };
