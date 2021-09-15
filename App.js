@@ -8,10 +8,13 @@
 
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack'
+import {createStackNavigator} from '@react-navigation/stack';
+import {Image, TouchableOpacity} from 'react-native';
 
 import Login from './src/Screens/Login';
 import Signup from './src/Screens/Signup';
+import Messages from './src/Screens/Messages';
+import Chat from './src/Components/Chat';
 
 const Stack = createStackNavigator();
 
@@ -19,8 +22,10 @@ const App = () => {
   return(
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Signup">
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Signup" component={Signup} />
+        <Stack.Screen name="Login" component={Login} options={{headerShown: false}}/>
+        <Stack.Screen name="Signup" component={Signup} options={{headerShown: false}}/>
+        <Stack.Screen name="Messages" component={Messages} />
+        <Stack.Screen name="Chat" component={Chat} />
       </Stack.Navigator>
     </NavigationContainer>
   )
