@@ -11,18 +11,28 @@ const Chat = (props) => {
     const messagesObject = props.route.params.messagesData
     const [messages, setMessages] = useState([]);
 
+    const testMessage = {
+        _id: 1,
+        text: "Hello Developer",
+        createdAt: new Date(),
+        user: {
+            _id: 2,
+            name: "React Native",
+        }
+    };
     const messagesObjToArray = (object) => {
         const array = [];
         for(key in object){
             array.push(object[key]);
         }
+        array.push(testMessage);
         setMessages([...array]); 
     };
 
     const onSend = useCallback((messages = []) => {
         const objectId = Math.floor(Math.random() * 100);
         setMessages(previousMessages => GiftedChat.append(previousMessages, messages));
-        const {_id, createdAt, text, user} = messages[messages.length - 1];
+        const {_id, createdAt, text, user} = messages[0];
         ref.ref('/messages/' + `${objectId}`).set({_id, createdAt, text, user})
         .then(() => {
             console.log("data set");

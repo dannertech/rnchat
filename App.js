@@ -9,7 +9,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Image, TouchableOpacity} from 'react-native';
+import {Image, TouchableOpacity, Button} from 'react-native';
 
 import Login from './src/Screens/Login';
 import Signup from './src/Screens/Signup';
@@ -24,8 +24,12 @@ const App = () => {
       <Stack.Navigator initialRouteName="Signup">
         <Stack.Screen name="Login" component={Login} options={{headerShown: false}}/>
         <Stack.Screen name="Signup" component={Signup} options={{headerShown: false}}/>
-        <Stack.Screen name="Messages" component={Messages} />
-        <Stack.Screen name="Chat" component={Chat} />
+        <Stack.Screen name="Messages" component={Messages} options={{headerLeft: () => (
+          <Button title="Sign Out" />
+  )}}/>
+        <Stack.Screen name="Chat" component={Chat} options={{headerRight: () => (
+          <Button title="Sign Out" />
+  )}}/>
       </Stack.Navigator>
     </NavigationContainer>
   )

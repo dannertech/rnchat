@@ -1,29 +1,40 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, Text, View, Button, TextInput, Image} from 'react-native';
+import {StyleSheet, Text, View, Button, TextInput, Image, TouchableOpacity} from 'react-native';
 import auth from '@react-native-firebase/auth';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import database from '@react-native-firebase/database';
+
 
 const Login = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [messages, setMessages] = useState();
 
     const _login = (email,password) => {
         if(email != '' && password != ''){
             auth().signInWithEmailAndPassword(email, password)
             .then(() => {
                 console.log("successfully ");
-                props.navigation.navigate('Chat');
+                props.navigation.navigate('Chat', {messagesData: messages});
             }).catch((error) => {
                 console.log(error);
             })
         }
     };
 
+    useEffect(() => {
+        
+        database().ref('/messages')
+        .once('value').then((snapshot) => {
+            setMessages(snapshot.val());
+        })
+    }, []);
+
     return(
         <View style={styles.mainView}>
             <View style={styles.formView}>
-            <TextInput style={styles.textinputStyle} placeholder="Email" value={email} onChangeText={(text) => setEmail(text)} />
-            <TextInput style={styles.textinputStyle} placeholder="Password" value={password} onChangeText={(text) => setPassword(text)} />
+            <Image source={require('../Images/mouth-logo.png')} style={{height: 200, width: 200, alignSelf: 'center'}}/>
+            <TextInput style={styles.textinputStyle} placeholder="Email" value={email} onChangeText={(text) => setEmail(text)} autoCapitalize="none" autoCorrect={false}/>
+            <TextInput style={styles.textinputStyle} placeholder="Password" value={password} onChangeText={(text) => setPassword(text)} autoCapitalize="none" autoCorrect={false}/>
             <TouchableOpacity style={styles.buttonStyle} onPress={() => _login(email, password)}>
                 <Text>Login</Text>
             </TouchableOpacity>
