@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, View, Text, TextInput, Button, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Text, TextInput, Button, TouchableOpacity, Image} from 'react-native';
 import auth from '@react-native-firebase/auth';
 import database from '@react-native-firebase/database';
 
@@ -38,6 +38,7 @@ const Signup = (props) => {
     return(
         <View style={styles.mainView}>
             <View style={styles.formView}>
+                <Image source={require('../Images/mouth-logo.png')} style={{height: 200, width: 200, alignSelf: 'center'}}/>
             <TextInput style={styles.textinputStyle} placeholder="Email" onChangeText={(text) => setEmail(text)} value={email} autoCapitalize="none" autoCorrect={false} />
             <TextInput style={styles.textinputStyle} placeholder="Password" onChangeText={(text) => setPassword(text)} value={password} autoCapitalize="none" autoCorrect={false}/>
             <TextInput style={styles.textinputStyle} placeholder="Confirm Password" onChangeText={(text) => setConfirmPassword(text)} value={confirmPassword} autoCapitalize="none" autoCorrect={false}/>
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     buttonStyle: {
-        backgroundColor: '#FFBBD6',
+        backgroundColor: '#620027',
         height: 40,
         marginHorizontal: 80,
         alignItems: 'center',
@@ -80,7 +81,7 @@ const styles = StyleSheet.create({
         marginTop: 30
     },
     textStyle: {
-        color: 'black',
+        color: 'white',
         fontWeight: 'bold',
         fontSize: 18,
         letterSpacing: 2

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, Text, View, Button, TextInput} from 'react-native';
+import {StyleSheet, Text, View, Button, TextInput, Image} from 'react-native';
 import auth from '@react-native-firebase/auth';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     buttonStyle: {
-        backgroundColor: '#FFBBD6',
+        backgroundColor: '#620027',
         height: 40,
         marginHorizontal: 80,
         alignItems: 'center',
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
         marginTop: 30
     },
     textStyle: {
-        color: 'black',
+        color: 'white',
         fontWeight: 'bold',
         fontSize: 18,
         letterSpacing: 2
