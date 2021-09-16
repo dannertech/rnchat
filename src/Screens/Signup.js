@@ -44,6 +44,9 @@ const Signup = (props) => {
             <TouchableOpacity style={styles.buttonStyle} title="Sign Up" onPress={() => _signup(email, password, confirmPassword)}>
                 <Text style={styles.textStyle}>Sign Up</Text>
             </TouchableOpacity>
+            <TouchableOpacity style={styles.subButtonStyle} onPress={() => props.navigation.navigate('Login')}>
+                <Text style={{color: 'white', fontSize: 15}}>or Login</Text>
+            </TouchableOpacity>
             </View>
         </View>
     )
@@ -51,8 +54,8 @@ const Signup = (props) => {
 
 const styles = StyleSheet.create({
     textinputStyle: {
+        textAlign: 'center',
         height: 40,
-        borderWidth: 1,
         borderRadius: 10,
         marginBottom: 20,
         color: 'black',
@@ -64,19 +67,28 @@ const styles = StyleSheet.create({
     },
     mainView: {
         height: '100%',
-        backgroundColor: '#BA4C27',
+        backgroundColor: '#1D1F1F',
         justifyContent: 'center'
     },
     buttonStyle: {
-        backgroundColor: 'black',
+        backgroundColor: '#FFBBD6',
         height: 40,
         marginHorizontal: 80,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        borderRadius: 10,
+        marginTop: 30
     },
     textStyle: {
-        color: 'white',
-        fontWeight: 'bold'
+        color: 'black',
+        fontWeight: 'bold',
+        fontSize: 18,
+        letterSpacing: 2
+    },
+    subButtonStyle: {
+        alignItems: 'center',
+        marginTop: 15,
+        
     }
 });
 
